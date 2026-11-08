@@ -280,6 +280,16 @@ Para várias instâncias atrás de um load balancer, passe um `store` compartilh
 
 ---
 
+## 🌐 Quem usa
+
+| Site | Onde | Integração |
+|------|------|------------|
+| [PS Smart Solutions](https://pssmartsolutions.com.br/#contato) | Formulário de contato | Site estático em Next.js com envio pelo Formspree; o widget libera o envio após a verificação |
+
+Usa o Humnovo no seu site ou app? Abra um PR adicionando uma linha nesta tabela.
+
+---
+
 ## 🗺️ Roadmap
 
 - [x] Widget JavaScript base

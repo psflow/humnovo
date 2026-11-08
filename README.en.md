@@ -280,6 +280,16 @@ To run multiple instances behind a load balancer, pass a shared `store` (e.g. Re
 
 ---
 
+## 🌐 Who uses it
+
+| Website | Where | Integration |
+|---------|-------|-------------|
+| [PS Smart Solutions](https://pssmartsolutions.com.br/#contato) | Contact form | Static Next.js site posting to Formspree; the widget unlocks submission after verification |
+
+Using Humnovo on your site or app? Open a PR adding a row to this table.
+
+---
+
 ## 🗺️ Roadmap
 
 - [x] Base JavaScript widget
