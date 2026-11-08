@@ -87,9 +87,8 @@ async function demo(req, res) {
   if (req.method === 'GET' && (path === '/' || path === '/demo')) {
     const html = page(
       'Humnovo — demo',
-      `<h1>Humnovo</h1><p>Formulário de exemplo protegido pelo Humnovo.</p>
+      `<h1>Humnovo</h1><p>Clique em <strong>Sou humano</strong> e depois em <strong>Enviar</strong> para ver a validação do token no backend.</p>
 <form action="/demo/submit" method="POST">
-  <input type="email" name="email" placeholder="seu@email.com" required>
   <div class="humnovo" data-sitekey="${escapeHtml(demoSite.siteKey)}"></div>
   <button type="submit">Enviar</button>
 </form>
