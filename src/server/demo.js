@@ -66,8 +66,8 @@ function pickText(req, url) {
 }
 
 const CSS = `
-:root{color-scheme:light dark;--bg:#f8fafc;--card:#fff;--fg:#0f172a;--muted:#475569;--border:#e2e8f0;--accent:#2563eb;--code:#f1f5f9}
-@media (prefers-color-scheme:dark){:root{--bg:#0b1120;--card:#111827;--fg:#f1f5f9;--muted:#94a3b8;--border:#1f2937;--accent:#60a5fa;--code:#0f172a}}
+:root{color-scheme:light dark;--bg:#f8fafc;--card:#fff;--fg:#0f172a;--muted:#475569;--border:#e2e8f0;--accent:#2563eb;--code:#f1f5f9;--on-accent:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1120;--card:#111827;--fg:#f1f5f9;--muted:#94a3b8;--border:#1f2937;--accent:#60a5fa;--code:#0f172a;--on-accent:#0b1120}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
 main{max-width:640px;margin:0 auto;padding:40px 16px 56px}
 header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
@@ -77,7 +77,7 @@ h1{font-size:2rem;margin:0}a{color:var(--accent)}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px}
 .card>:first-child{margin-top:0}.card>:last-child{margin-bottom:0}
 form{display:grid;gap:16px;justify-items:start}
-button{font:inherit;padding:10px 22px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer}
+button{font:inherit;padding:10px 22px;border-radius:8px;border:0;background:var(--accent);color:var(--on-accent);cursor:pointer}
 h2{font-size:1.1rem;margin:0 0 12px}ol{margin:0;padding-left:20px;color:var(--muted)}li+li{margin-top:6px}
 pre{background:var(--code);border:1px solid var(--border);padding:14px;border-radius:10px;overflow:auto;font-size:.85rem;margin:0}
 footer{display:flex;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:.9rem}
