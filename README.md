@@ -11,7 +11,7 @@
 
 <p align="center">
   <img src="docs/images/demo.gif" alt="Demonstração do widget Humnovo: clique em 'Sou humano' e a verificação é concluída em instantes" width="560">
-  <br><a href="https://humnovo.onrender.com"><strong>▶️ Experimente a demo online</strong></a>
+  <br><br><a href="https://humnovo.onrender.com"><img src=".github/badges/demo-pt.svg" alt="Experimente a demo online" height="52"></a>
 </p>
 
 > 💙 **Projeto aberto a contribuições.** Veja [como ajudar](#-contribuindo) ou procure issues marcadas com [`good first issue`](https://github.com/psflow/humnovo/labels/good%20first%20issue).

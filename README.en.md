@@ -11,7 +11,7 @@
 
 <p align="center">
   <img src="docs/images/demo.gif" alt="Humnovo widget demo: click 'I'm human' and verification completes in a moment" width="560">
-  <br><a href="https://humnovo.onrender.com"><strong>▶️ Try the live demo</strong></a>
+  <br><br><a href="https://humnovo.onrender.com"><img src=".github/badges/demo-en.svg" alt="Try the live demo" height="52"></a>
 </p>
 
 > 💙 **Contributions welcome.** See [how to help](#-contributing) or look for issues labeled [`good first issue`](https://github.com/psflow/humnovo/labels/good%20first%20issue).
