@@ -7,5 +7,5 @@
 
 - [ ] `npm test` passes / passa
 - [ ] Tests added or updated / Testes adicionados ou atualizados
-- [ ] Docs updated if needed (README.md and README.pt-BR.md) / Documentação atualizada se necessário
+- [ ] Docs updated if needed (README.md and README.en.md) / Documentação atualizada se necessário
 - [ ] No new runtime dependencies / Sem novas dependências de runtime
