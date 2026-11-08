@@ -5,6 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+[![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-ea4aaa.svg?logo=githubsponsors)](https://github.com/sponsors/psflow)
 
 ---
 
@@ -297,6 +298,16 @@ Contribuições são muito bem-vindas!
 5. Abra um Pull Request
 
 Antes de contribuir, leia o [CONTRIBUTING.md](CONTRIBUTING.md) e o [Código de Conduta](CODE_OF_CONDUCT.md).
+
+---
+
+## 💙 Apoie o projeto
+
+O Humnovo é gratuito e open source. Se ele ajuda o seu site ou aplicativo, considere apoiar pelo **[GitHub Sponsors](https://github.com/sponsors/psflow)**.
+
+O apoio financia tempo de desenvolvimento para novas funcionalidades (componentes React/Vue, plugin WordPress, modo invisível), manutenção, documentação e revisões de segurança.
+
+Não pode apoiar financeiramente? Dar uma ⭐ no repositório, compartilhar o projeto ou abrir uma issue com feedback também ajuda muito.
 
 ---
 
