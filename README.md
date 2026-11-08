@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
-[![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-ea4aaa.svg?logo=githubsponsors)](https://github.com/sponsors/psflow)
+[![Sponsor](https://img.shields.io/badge/sponsor-psflow-ea4aaa.svg?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/psflow)
 
 ---
 
