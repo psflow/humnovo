@@ -2,10 +2,10 @@
 
 > Verificação humana open source, moderna, leve e focada em privacidade, sem CAPTCHAs tradicionais.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow.svg)
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
-[![Sponsor](https://img.shields.io/badge/sponsor-psflow-ea4aaa.svg?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/psflow)
+[![License](.github/badges/license.svg)](LICENSE)
+![Status](.github/badges/status.svg)
+[![PRs Welcome](.github/badges/prs.svg)](CONTRIBUTING.md)
+[![Sponsor](.github/badges/sponsor.svg)](https://github.com/sponsors/psflow)
 
 ---
 
