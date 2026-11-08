@@ -1,0 +1,56 @@
+{
+  "name": "humnovo",
+  "version": "0.1.0",
+  "description": "Verificação humana open source, leve e focada em privacidade, sem CAPTCHAs tradicionais.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Pedro Silva",
+  "homepage": "https://github.com/psflow/humnovo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psflow/humnovo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/psflow/humnovo/issues"
+  },
+  "keywords": [
+    "captcha",
+    "captcha-alternative",
+    "bot-protection",
+    "anti-spam",
+    "proof-of-work",
+    "privacy",
+    "human-verification"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./src/server/index.js",
+  "browser": "./src/widget/humnovo.js",
+  "bin": {
+    "humnovo": "src/server/cli.js"
+  },
+  "exports": {
+    ".": {
+      "browser": "./src/widget/humnovo.js",
+      "default": "./src/server/index.js"
+    },
+    "./server": "./src/server/index.js",
+    "./widget": "./src/widget/humnovo.js",
+    "./widget.js": "./dist/humnovo.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "node src/server/cli.js",
+    "build": "node scripts/build.js",
+    "test": "node --test",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "sideEffects": false
+}
