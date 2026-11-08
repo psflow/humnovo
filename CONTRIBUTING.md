@@ -1,5 +1,7 @@
 # Contribuindo com o Humnovo
 
+> 🇺🇸 **English summary:** Issues and PRs in English or Portuguese are welcome. Requirements: Node.js 18+, no runtime dependencies. Run `npm test` before opening a PR, use [Conventional Commits](https://www.conventionalcommits.org/) and keep the widget tiny, private (no fingerprinting) and accessible. Looking for a place to start? Check issues labeled [`good first issue`](https://github.com/psflow/humnovo/labels/good%20first%20issue).
+
 Obrigado pelo interesse! Toda contribuição é bem-vinda: código, documentação, testes, traduções e relatos de bugs.
 
 ## Ambiente

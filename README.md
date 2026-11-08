@@ -1,64 +1,72 @@
 # Humnovo
 
-> Verificação humana open source, moderna, leve e focada em privacidade, sem CAPTCHAs tradicionais.
+[🇧🇷 Português](README.pt-BR.md) · **🇺🇸 English**
+
+> Lightweight, privacy-first, open source human verification that protects websites and apps from spam and bots.
 
 [![License](.github/badges/license.svg)](LICENSE)
-![Status](.github/badges/status.svg)
+![Status](.github/badges/status-en.svg)
 [![PRs Welcome](.github/badges/prs.svg)](CONTRIBUTING.md)
 [![Sponsor](.github/badges/sponsor.svg)](https://github.com/sponsors/psflow)
 
----
+<p align="center">
+  <img src="docs/images/demo.gif" alt="Humnovo widget demo: click 'I'm human' and verification completes in a moment" width="560">
+</p>
 
-## 📖 Sobre
-
-O **Humnovo** é um projeto open source de verificação humana criado para proteger sites e aplicações contra bots, spam e atividades automatizadas maliciosas.
-
-A proposta é oferecer uma camada **moderna, leve, segura e acessível** de autenticação humana, fácil de integrar a qualquer plataforma por meio de bibliotecas, APIs e componentes reutilizáveis.
-
-Com foco em **privacidade, simplicidade e flexibilidade**, o Humnovo busca reinventar a forma como aplicações distinguem usuários reais de automações, sem depender dos modelos tradicionais de CAPTCHA e priorizando uma experiência fluida para usuários e desenvolvedores.
+> 💙 **Contributions welcome.** See [how to help](#-contributing) or look for issues labeled [`good first issue`](https://github.com/psflow/humnovo/labels/good%20first%20issue).
 
 ---
 
-## ✨ Principais características
+## 📖 About
 
-- 🛡️ **Proteção contra bots**: bloqueia spam e automações maliciosas
-- 🔒 **Privacidade em primeiro lugar**: sem rastreamento invasivo de usuários
-- ⚡ **Leve**: impacto mínimo no carregamento e na performance
-- ♿ **Acessível**: experiência inclusiva, sem desafios visuais frustrantes
-- 🧩 **Fácil integração**: bibliotecas, API REST e componentes reutilizáveis
-- 🎯 **Sem CAPTCHA tradicional**: verificação fluida e não intrusiva
-- 🔧 **Flexível**: configurável para diferentes níveis de segurança
-- 🌐 **Open source**: transparente, auditável e mantido pela comunidade
+**Humnovo** is an open source human verification project built to protect websites and applications from bots, spam and malicious automated activity.
+
+It provides a **modern, lightweight, secure and accessible** human verification layer that is easy to plug into any platform through libraries, APIs and reusable components.
+
+With a focus on **privacy, simplicity and flexibility**, Humnovo helps applications tell real users apart from automation while keeping the experience smooth for users and developers.
 
 ---
 
-## 🧠 Como funciona
+## ✨ Features
+
+- 🛡️ **Bot protection**: blocks spam and malicious automation
+- 🔒 **Privacy first**: no invasive user tracking
+- ⚡ **Lightweight**: minimal impact on page load and performance
+- ♿ **Accessible**: keyboard navigable and screen reader friendly
+- 🧩 **Easy integration**: libraries, REST API and reusable components
+- 🎯 **One click**: smooth, non-intrusive verification
+- 🔧 **Flexible**: configurable security levels
+- 🌐 **Open source**: transparent, auditable and community driven
+
+---
+
+## 🧠 How it works
 
 ```
 ┌──────────────┐     ┌──────────────────┐     ┌──────────────────┐
-│   Usuário    │────▶│  Widget Humnovo  │────▶│  API de          │
-│  (navegador) │     │  (client-side)   │     │  Verificação     │
+│     User     │────▶│  Humnovo widget  │────▶│  Verification    │
+│   (browser)  │     │  (client-side)   │     │  API             │
 └──────────────┘     └──────────────────┘     └────────┬─────────┘
                                                        │ token
                                                        ▼
                                               ┌──────────────────┐
-                                              │  Seu backend     │
-                                              │  valida o token  │
+                                              │  Your backend    │
+                                              │  validates token │
                                               └──────────────────┘
 ```
 
-1. O widget do Humnovo é carregado na página.
-2. A verificação ocorre de forma leve e não intrusiva.
-3. Um token de verificação é gerado.
-4. O backend da sua aplicação valida o token junto à API do Humnovo (uso único).
+1. The Humnovo widget loads on your page.
+2. Verification runs in a lightweight, non-intrusive way.
+3. A verification token is issued.
+4. Your backend validates the token against the Humnovo API (single use).
 
 ---
 
-## 🚀 Instalação (3 passos)
+## 🚀 Installation (3 steps)
 
-O Humnovo é **self-hosted**: você roda um servidor minúsculo (zero dependências, só Node.js 18+) e qualquer site, em qualquer linguagem, passa a usá-lo.
+Humnovo is **self-hosted**: you run a tiny server (zero dependencies, just Node.js 18+) and any website, in any language, can use it.
 
-**1. Gere as chaves**
+**1. Generate your keys**
 
 ```bash
 npx humnovo keys
@@ -66,53 +74,62 @@ npx humnovo keys
 # HUMNOVO_SECRET_KEY=hn_sk_...
 ```
 
-**2. Suba o servidor** (escolha um)
+**2. Start the server** (pick one)
 
 ```bash
 # Node.js
-HUMNOVO_SITE_KEY=hn_pk_... HUMNOVO_SECRET_KEY=hn_sk_... HUMNOVO_HOSTNAMES=meusite.com.br npx humnovo
+HUMNOVO_SITE_KEY=hn_pk_... HUMNOVO_SECRET_KEY=hn_sk_... HUMNOVO_HOSTNAMES=mysite.com npx humnovo
 
 # Docker
 docker build -t humnovo https://github.com/psflow/humnovo.git
 docker run -p 8787:8787 -e HUMNOVO_SITE_KEY=hn_pk_... -e HUMNOVO_SECRET_KEY=hn_sk_... humnovo
 ```
 
-> Quer só experimentar? Rode `npx humnovo` sem nada e abra http://localhost:8787: há uma página demo com chaves temporárias.
+Or in one click on Render (keys are generated automatically; in production, set `HUMNOVO_DEMO=0` and `HUMNOVO_HOSTNAMES`):
 
-**3. Coloque o widget no formulário e valide o token no backend** (veja abaixo).
+[![Deploy to Render](.github/badges/deploy-render.svg)](https://render.com/deploy?repo=https://github.com/psflow/humnovo)
+
+> Just want to try it? Run `npx humnovo` with no configuration and open http://localhost:8787 for a demo page with temporary keys.
+
+**3. Add the widget to your form and validate the token on your backend** (see below).
 
 ---
 
-## 💻 Uso básico
+## 💻 Usage
 
-### Front-end (HTML): funciona em qualquer site
+### Front-end (HTML): works on any website
 
 ```html
-<form action="/enviar" method="POST">
-  <input type="email" name="email" placeholder="Seu e-mail" />
+<form action="/submit" method="POST">
+  <input type="email" name="email" placeholder="Your email" />
 
-  <div class="humnovo" data-sitekey="SUA_CHAVE_PUBLICA"></div>
+  <div class="humnovo" data-sitekey="YOUR_SITE_KEY"></div>
 
-  <button type="submit">Enviar</button>
+  <button type="submit">Submit</button>
 </form>
 
-<script src="https://humnovo.seusite.com/widget.js" async defer></script>
+<script src="https://humnovo.yoursite.com/widget.js" async defer></script>
 ```
 
-O widget adiciona ao formulário um campo oculto `humnovo-token`. A URL da API é descoberta a partir do `src` do script (ou use `data-api`).
+<p>
+  <img src="docs/images/widget-en-light.png" alt="Verified Humnovo widget, light theme" width="300">
+  <img src="docs/images/widget-en-dark.png" alt="Verified Humnovo widget, dark theme" width="300">
+</p>
 
-| Atributo                 | Descrição                                         |
-|--------------------------|---------------------------------------------------|
-| `data-sitekey`           | Chave pública (obrigatório)                       |
-| `data-theme`             | `auto` (padrão), `light` ou `dark`                |
-| `data-lang`              | `auto` (padrão), `pt-BR`, `en`, `es`              |
-| `data-api`               | URL do servidor Humnovo                           |
-| `data-callback`          | Nome de função global chamada com o token         |
-| `data-error-callback`    | Função global chamada em caso de erro             |
-| `data-expired-callback`  | Função global chamada quando o token expira       |
-| `data-input-name`        | Nome do campo oculto (padrão `humnovo-token`)     |
+The widget adds a hidden `humnovo-token` field to the form. The API URL is inferred from the script's `src` (or set `data-api`).
 
-Também são disparados os eventos DOM `humnovo:success`, `humnovo:error` e `humnovo:expired`.
+| Attribute                | Description                                      |
+|--------------------------|--------------------------------------------------|
+| `data-sitekey`           | Public site key (required)                       |
+| `data-theme`             | `auto` (default), `light` or `dark`              |
+| `data-lang`              | `auto` (default), `pt-BR`, `en`, `es`            |
+| `data-api`               | Humnovo server URL                               |
+| `data-callback`          | Name of a global function called with the token  |
+| `data-error-callback`    | Global function called on error                  |
+| `data-expired-callback`  | Global function called when the token expires    |
+| `data-input-name`        | Hidden field name (default `humnovo-token`)      |
+
+The DOM events `humnovo:success`, `humnovo:error` and `humnovo:expired` are dispatched as well.
 
 ### Front-end (JavaScript / bundlers)
 
@@ -120,21 +137,21 @@ Também são disparados os eventos DOM `humnovo:success`, `humnovo:error` e `hum
 import { Humnovo } from 'humnovo';
 
 const humnovo = new Humnovo({
-  siteKey: 'SUA_CHAVE_PUBLICA',
-  apiUrl: 'https://humnovo.seusite.com',
+  siteKey: 'YOUR_SITE_KEY',
+  apiUrl: 'https://humnovo.yoursite.com',
   container: '#humnovo-container',
-  onSuccess: (token) => console.log('Verificação concluída:', token),
-  onError: (error) => console.error('Falha na verificação:', error.code),
+  onSuccess: (token) => console.log('Verified:', token),
+  onError: (error) => console.error('Verification failed:', error.code),
 });
 
 humnovo.render();
 // humnovo.getToken(), humnovo.reset(), humnovo.destroy()
 ```
 
-### Back-end: validação do token (qualquer linguagem)
+### Back-end: token validation (any language)
 
 ```javascript
-const response = await fetch('https://humnovo.seusite.com/v1/verify', {
+const response = await fetch('https://humnovo.yoursite.com/v1/verify', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -146,48 +163,48 @@ const response = await fetch('https://humnovo.seusite.com/v1/verify', {
 const result = await response.json();
 
 if (result.success) {
-  // Usuário humano verificado
+  // Verified human
 } else {
-  // Bloquear requisição
+  // Block the request
 }
 ```
 
-Exemplos prontos em [`examples/`](examples/): HTML puro, Express e PHP.
+Ready-made examples in [`examples/`](examples/): plain HTML, Express and PHP.
 
-### Back-end Node.js: embutido na sua aplicação (sem servidor separado)
+### Node.js back-end: embedded in your app (no separate server)
 
 ```javascript
 import express from 'express';
 import { createHumnovo } from 'humnovo/server';
 
 const humnovo = createHumnovo({
-  sites: [{ siteKey: process.env.HUMNOVO_SITE_KEY, secret: process.env.HUMNOVO_SECRET_KEY, hostnames: ['meusite.com.br'] }],
+  sites: [{ siteKey: process.env.HUMNOVO_SITE_KEY, secret: process.env.HUMNOVO_SECRET_KEY, hostnames: ['mysite.com'] }],
 });
 
-app.use('/humnovo', humnovo); // serve /humnovo/widget.js e a API
+app.use('/humnovo', humnovo); // serves /humnovo/widget.js and the API
 
-app.post('/contato', express.urlencoded({ extended: false }), async (req, res) => {
+app.post('/contact', express.urlencoded({ extended: false }), async (req, res) => {
   const result = await humnovo.verify(req.body['humnovo-token']);
-  if (!result.success) return res.status(400).send('Verificação falhou');
+  if (!result.success) return res.status(400).send('Verification failed');
   // ...
 });
 ```
 
-Funciona também com `node:http` puro: `http.createServer(createHumnovo({...}))`.
+It also works with plain `node:http`: `http.createServer(createHumnovo({...}))`.
 
 ---
 
-## 🔬 Como a verificação funciona por dentro
+## 🔬 Under the hood
 
-1. **Desafio de prova de trabalho (PoW)**: o servidor envia um `salt` e um hash `SHA-256(salt + n)`; o navegador precisa descobrir `n`. O desafio é assinado com HMAC, então o servidor não guarda estado.
-2. **Resolução em segundo plano**: começa assim que o usuário passa o mouse/foca no widget, roda num Web Worker e leva frações de segundo. Para quem automatiza em escala, o custo de CPU se acumula.
-3. **Sinais de interação leves**: clique confiável (`isTrusted`), tempo desde o carregamento, movimento de ponteiro, teclado ou toque e `navigator.webdriver`. São **apenas contadores e booleanos**: sem cookies, fingerprint ou dados pessoais.
-4. **Token de uso único**: assinado, com expiração curta (5 min) e preso ao hostname. Seu backend valida uma única vez.
+1. **Proof-of-work (PoW) challenge**: the server sends a `salt` and a `SHA-256(salt + n)` hash; the browser must find `n`. The challenge is HMAC-signed, so the server stays stateless.
+2. **Background solving**: starts as soon as the user hovers or focuses the widget, runs in a Web Worker and takes a fraction of a second. For anyone automating at scale, the CPU cost adds up.
+3. **Lightweight interaction signals**: trusted click (`isTrusted`), time since load, pointer movement, keyboard or touch, and `navigator.webdriver`. These are **only counters and booleans**: no cookies, no fingerprinting, no personal data.
+4. **Single-use token**: signed, short-lived (5 min) and bound to the hostname. Your backend validates it exactly once.
 
-> ⚠️ Nenhuma solução bloqueia 100% dos bots. O Humnovo aumenta o custo da automação; para alvos críticos, combine com rate limiting. Veja o [modelo de ameaça](SECURITY.md).
+> ⚠️ No solution blocks 100% of bots. Humnovo raises the cost of automation; for critical targets, combine it with rate limiting. See the [threat model](SECURITY.md).
 
-**Peso:** widget de ~19 KB (~7 KB gzip), sem dependências, com estilos isolados em Shadow DOM.
-**Acessibilidade:** navegável por teclado, `role="checkbox"` com estados ARIA, mensagens em `aria-live` e respeito a `prefers-reduced-motion`.
+**Size:** ~19 KB widget (~7 KB gzipped), zero dependencies, styles isolated with Shadow DOM.
+**Accessibility:** keyboard navigable, `role="checkbox"` with ARIA states, `aria-live` status messages and `prefers-reduced-motion` support.
 
 ---
 
@@ -195,135 +212,135 @@ Funciona também com `node:http` puro: `http.createServer(createHumnovo({...}))`
 
 ### `GET /v1/challenge?sitekey=...`
 
-Retorna um desafio assinado (usado pelo widget).
+Returns a signed challenge (used by the widget).
 
 ### `POST /v1/solve`
 
-Recebe a solução e os sinais e devolve `{ success, token, expiresIn }` (usado pelo widget).
+Receives the solution and signals and returns `{ success, token, expiresIn }` (used by the widget).
 
 ### `POST /v1/verify`
 
-| Parâmetro | Tipo     | Obrigatório | Descrição                         |
-|-----------|----------|-------------|-----------------------------------|
-| `secret`  | `string` | Sim         | Chave secreta da aplicação        |
-| `token`   | `string` | Sim         | Token gerado pelo widget          |
+| Parameter | Type     | Required | Description                 |
+|-----------|----------|----------|-----------------------------|
+| `secret`  | `string` | Yes      | Your secret key             |
+| `token`   | `string` | Yes      | Token issued to the widget  |
 
-Aceita JSON ou `application/x-www-form-urlencoded`.
+Accepts JSON or `application/x-www-form-urlencoded`.
 
-**Resposta:**
+**Response:**
 
 ```json
 {
   "success": true,
   "timestamp": "2026-11-08T14:50:00.000Z",
-  "hostname": "seusite.com",
+  "hostname": "yoursite.com",
   "siteKey": "hn_pk_..."
 }
 ```
 
-Em caso de falha: `{ "success": false, "error": "token-expired" }`. Códigos possíveis: `invalid-input`, `invalid-token`, `invalid-secret`, `token-expired`, `token-reused`.
+On failure: `{ "success": false, "error": "token-expired" }`. Possible codes: `invalid-input`, `invalid-token`, `invalid-secret`, `token-expired`, `token-reused`.
 
-### Outras rotas
+### Other routes
 
-- `GET /widget.js`: o widget para `<script>`
-- `GET /health`: verificação de saúde
+- `GET /widget.js`: the `<script>` widget
+- `GET /health`: health check
 
 ---
 
-## ⚙️ Configuração
+## ⚙️ Configuration
 
 ### Widget
 
-| Opção        | Tipo       | Padrão            | Descrição                              |
+| Option       | Type       | Default           | Description                            |
 |--------------|------------|-------------------|----------------------------------------|
-| `siteKey`    | `string`   | —                 | Chave pública do site                  |
-| `container`  | `string`   | —                 | Seletor ou elemento onde será exibido  |
-| `apiUrl`     | `string`   | origem do script  | URL do servidor Humnovo                |
-| `theme`      | `string`   | `'auto'`          | `'light'`, `'dark'` ou `'auto'`        |
+| `siteKey`    | `string`   | —                 | Public site key                        |
+| `container`  | `string`   | —                 | Selector or element to render into     |
+| `apiUrl`     | `string`   | script origin     | Humnovo server URL                     |
+| `theme`      | `string`   | `'auto'`          | `'light'`, `'dark'` or `'auto'`        |
 | `language`   | `string`   | `'auto'`          | `'auto'`, `'pt-BR'`, `'en'`, `'es'`    |
-| `inputName`  | `string`   | `'humnovo-token'` | Nome do campo oculto do formulário     |
-| `onSuccess`  | `function` | —                 | Callback ao concluir a verificação     |
-| `onError`    | `function` | —                 | Callback em caso de erro               |
-| `onExpire`   | `function` | —                 | Callback quando o token expira         |
+| `inputName`  | `string`   | `'humnovo-token'` | Hidden form field name                 |
+| `onSuccess`  | `function` | —                 | Called when verification succeeds      |
+| `onError`    | `function` | —                 | Called on error                        |
+| `onExpire`   | `function` | —                 | Called when the token expires          |
 
-### Servidor
+### Server
 
-Via variáveis de ambiente (`PORT`, `HOST`, `HUMNOVO_SITE_KEY`, `HUMNOVO_SECRET_KEY`, `HUMNOVO_HOSTNAMES`, `HUMNOVO_LEVEL`) ou um `humnovo.config.json` com vários sites (veja [`humnovo.config.example.json`](humnovo.config.example.json)):
+Via environment variables (`PORT`, `HOST`, `HUMNOVO_SITE_KEY`, `HUMNOVO_SECRET_KEY`, `HUMNOVO_HOSTNAMES`, `HUMNOVO_LEVEL`) or a `humnovo.config.json` with multiple sites (see [`humnovo.config.example.json`](humnovo.config.example.json)):
 
-| Opção do site | Padrão     | Descrição                                                        |
-|---------------|------------|------------------------------------------------------------------|
-| `siteKey`     | —          | Chave pública                                                    |
-| `secret`      | —          | Chave secreta (mín. 16 caracteres)                               |
-| `hostnames`   | qualquer   | Domínios permitidos; aceita curinga `*.meusite.com`              |
-| `level`       | `medium`   | `low` (só PoW leve), `medium` ou `high` (PoW maior e sinais mais rigorosos) |
-| `maxNumber`   | pelo nível | Dificuldade do PoW (média de hashes = `maxNumber / 2`)           |
+| Site option   | Default    | Description                                                         |
+|---------------|------------|---------------------------------------------------------------------|
+| `siteKey`     | —          | Public key                                                          |
+| `secret`      | —          | Secret key (min. 16 characters)                                     |
+| `hostnames`   | any        | Allowed domains; supports wildcards like `*.mysite.com`             |
+| `level`       | `medium`   | `low` (light PoW only), `medium` or `high` (bigger PoW, stricter signals) |
+| `maxNumber`   | per level  | PoW difficulty (average hashes = `maxNumber / 2`)                   |
 
-Para várias instâncias atrás de um load balancer, passe um `store` compartilhado (ex.: Redis) para `createHumnovo({ store })`: qualquer objeto com `consume(key, expiresAt) → boolean`.
+To run multiple instances behind a load balancer, pass a shared `store` (e.g. Redis) to `createHumnovo({ store })`: any object with `consume(key, expiresAt) → boolean`.
 
 ---
 
 ## 🗺️ Roadmap
 
-- [x] Widget JavaScript base
-- [x] API REST de verificação
-- [x] Opção de self-hosting (Node.js e Docker)
-- [ ] Componentes para React, Vue e Angular
-- [ ] SDKs para Python, PHP e Java
-- [ ] Store Redis oficial e rate limiting embutido
-- [ ] Modo invisível
-- [ ] Painel de administração
-- [ ] Plugins para WordPress e outras plataformas
-- [ ] Mais idiomas
+- [x] Base JavaScript widget
+- [x] Verification REST API
+- [x] Self-hosting (Node.js, Docker and Render)
+- [ ] React, Vue and Angular components
+- [ ] Python, PHP and Java SDKs
+- [ ] Official Redis store and built-in rate limiting
+- [ ] Invisible mode
+- [ ] Admin dashboard
+- [ ] WordPress and other platform plugins
+- [ ] More languages
 
 ---
 
-## 🧪 Desenvolvimento
+## 🧪 Development
 
 ```bash
-npm test        # testes (node:test, sem dependências)
-npm start       # servidor local em modo demo
-npm run build   # gera dist/humnovo.js
+npm test        # tests (node:test, zero dependencies)
+npm start       # local server in demo mode
+npm run build   # builds dist/humnovo.js
 ```
 
 ---
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-Contribuições são muito bem-vindas!
+Contributions are very welcome!
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature: `git checkout -b feature/minha-feature`
-3. Faça commit das alterações: `git commit -m 'feat: adiciona minha feature'`
-4. Envie para o repositório: `git push origin feature/minha-feature`
-5. Abra um Pull Request
+1. Fork the project
+2. Create a branch: `git checkout -b feature/my-feature`
+3. Commit your changes: `git commit -m 'feat: add my feature'`
+4. Push the branch: `git push origin feature/my-feature`
+5. Open a Pull Request
 
-Antes de contribuir, leia o [CONTRIBUTING.md](CONTRIBUTING.md) e o [Código de Conduta](CODE_OF_CONDUCT.md).
-
----
-
-## 💙 Apoie o projeto
-
-O Humnovo é gratuito e open source. Se ele ajuda o seu site ou aplicativo, considere apoiar pelo **[GitHub Sponsors](https://github.com/sponsors/psflow)**.
-
-O apoio financia tempo de desenvolvimento para novas funcionalidades (componentes React/Vue, plugin WordPress, modo invisível), manutenção, documentação e revisões de segurança.
-
-Não pode apoiar financeiramente? Dar uma ⭐ no repositório, compartilhar o projeto ou abrir uma issue com feedback também ajuda muito.
+Before contributing, please read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md). Issues and PRs in English or Portuguese are welcome.
 
 ---
 
-## 🔐 Segurança
+## 💙 Support the project
 
-Encontrou uma vulnerabilidade? **Não abra uma issue pública.** Consulte o [SECURITY.md](SECURITY.md) para reportá-la de forma responsável.
+Humnovo is free and open source. If it helps your website or app, please consider supporting it through **[GitHub Sponsors](https://github.com/sponsors/psflow)**.
 
----
+Sponsorship funds development time for new features (React/Vue components, WordPress plugin, invisible mode), maintenance, documentation and security reviews.
 
-## 📄 Licença
-
-Distribuído sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Can't support financially? Starring ⭐ the repo, sharing the project or opening an issue with feedback helps a lot too.
 
 ---
 
-## 👤 Autor
+## 🔐 Security
+
+Found a vulnerability? **Please don't open a public issue.** See [SECURITY.md](SECURITY.md) for responsible disclosure.
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+## 👤 Author
 
 **Pedro Silva**
 
@@ -332,4 +349,4 @@ Distribuído sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais det
 
 ---
 
-<p align="center">Feito com 💙 para uma web mais humana.</p>
+<p align="center">Made with 💙 for a more human web.</p>

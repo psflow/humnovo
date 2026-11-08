@@ -1,0 +1,26 @@
+name: ✨ Feature request / Sugestão
+description: Suggest an idea or improvement / Sugira uma ideia ou melhoria
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does it solve? / Que problema resolve?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution / Solução proposta
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered / Alternativas consideradas
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution / Contribuição
+      options:
+        - label: I'd like to work on this / Quero trabalhar nisso

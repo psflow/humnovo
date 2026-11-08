@@ -1,7 +1,7 @@
 {
   "name": "humnovo",
   "version": "0.1.0",
-  "description": "Verificação humana open source, leve e focada em privacidade, sem CAPTCHAs tradicionais.",
+  "description": "Lightweight, privacy-first, open source human verification that protects websites and apps from spam and bots.",
   "type": "module",
   "license": "MIT",
   "author": "Pedro Silva",
@@ -13,6 +13,10 @@
   "bugs": {
     "url": "https://github.com/psflow/humnovo/issues"
   },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/psflow"
+  },
   "keywords": [
     "captcha",
     "captcha-alternative",
@@ -20,7 +24,11 @@
     "anti-spam",
     "proof-of-work",
     "privacy",
-    "human-verification"
+    "human-verification",
+    "self-hosted",
+    "spam-protection",
+    "bot-detection",
+    "form-protection"
   ],
   "engines": {
     "node": ">=18"
