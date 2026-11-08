@@ -12,7 +12,8 @@
 import http from 'node:http';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { createHumnovo, generateKeys, readBody } from './index.js';
+import { createHumnovo, generateKeys } from './index.js';
+import { createDemo } from './demo.js';
 
 const args = process.argv.slice(2);
 const cmd = args[0] && !args[0].startsWith('-') ? args[0] : 'start';
@@ -70,46 +71,7 @@ const port = Number(argValue('--port') || process.env.PORT || config.port || 878
 const host = process.env.HOST || config.host || '0.0.0.0';
 const demoSite = config.sites[0];
 
-const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
-
-function page(title, body) {
-  return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${title}</title><style>
-:root{color-scheme:light dark;font-family:system-ui,sans-serif}body{max-width:520px;margin:48px auto;padding:0 16px;line-height:1.5}
-input,button{font:inherit;padding:10px 12px;border-radius:8px;border:1px solid #9ca3af;box-sizing:border-box}
-input{width:100%}button{background:#2563eb;color:#fff;border:0;cursor:pointer}form{display:grid;gap:14px}
-pre{background:rgba(127,127,127,.12);padding:12px;border-radius:8px;overflow:auto}code{font-size:.9em}
-</style></head><body>${body}</body></html>`;
-}
-
-async function demo(req, res) {
-  const path = new URL(req.url, 'http://localhost').pathname;
-  if (req.method === 'GET' && (path === '/' || path === '/demo')) {
-    const html = page(
-      'Humnovo — demo',
-      `<h1>Humnovo</h1><p>Clique em <strong>Sou humano</strong> e depois em <strong>Enviar</strong> para ver a validação do token no backend.</p>
-<form action="/demo/submit" method="POST">
-  <div class="humnovo" data-sitekey="${escapeHtml(demoSite.siteKey)}"></div>
-  <button type="submit">Enviar</button>
-</form>
-<script src="/widget.js" async defer></script>`,
-    );
-    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-    return res.end(html), true;
-  }
-  if (req.method === 'POST' && path === '/demo/submit') {
-    const body = await readBody(req).catch(() => ({}));
-    const result = await humnovo.verify(body['humnovo-token']);
-    const html = page(
-      'Humnovo — resultado',
-      `<h1>${result.success ? '✅ Humano verificado' : '❌ Verificação falhou'}</h1>
-<p>Resposta de <code>verify()</code>:</p><pre>${escapeHtml(JSON.stringify(result, null, 2))}</pre><p><a href="/">Voltar</a></p>`,
-    );
-    res.writeHead(result.success ? 200 : 400, { 'Content-Type': 'text/html; charset=utf-8' });
-    return res.end(html), true;
-  }
-  return false;
-}
+const demo = createDemo({ humnovo, siteKey: demoSite.siteKey });
 
 const server = http.createServer(async (req, res) => {
   if (config.demo && (await demo(req, res))) return;
