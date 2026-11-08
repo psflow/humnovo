@@ -1,0 +1,9 @@
+{
+  "name": "humnovo-exemplo-express",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "express": "^4.21.2",
+    "humnovo": "^0.1.0"
+  }
+}

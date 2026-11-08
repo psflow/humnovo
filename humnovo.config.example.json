@@ -1,0 +1,12 @@
+{
+  "port": 8787,
+  "tokenTtl": 300,
+  "sites": [
+    {
+      "siteKey": "hn_pk_troque_por_sua_chave_publica",
+      "secret": "hn_sk_troque_por_sua_chave_secreta_gerada",
+      "hostnames": ["meusite.com.br", "*.meusite.com.br", "localhost"],
+      "level": "medium"
+    }
+  ]
+}

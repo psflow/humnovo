@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Humnovo — exemplo HTML</title>
+  </head>
+  <body>
+    <!--
+      Qualquer site estático: basta apontar o <script> para o seu servidor Humnovo.
+      A API é descoberta automaticamente a partir da URL do script
+      (ou use data-api="https://humnovo.seusite.com").
+    -->
+    <form action="/enviar" method="POST">
+      <input type="email" name="email" placeholder="Seu e-mail" required />
+
+      <div class="humnovo" data-sitekey="SUA_CHAVE_PUBLICA" data-theme="auto" data-callback="aoVerificar"></div>
+
+      <button type="submit" id="enviar" disabled>Enviar</button>
+    </form>
+
+    <script>
+      function aoVerificar(token) {
+        document.getElementById('enviar').disabled = false;
+      }
+      document.addEventListener('humnovo:expired', function () {
+        document.getElementById('enviar').disabled = true;
+      });
+    </script>
+    <script src="http://localhost:8787/widget.js" async defer></script>
+  </body>
+</html>
