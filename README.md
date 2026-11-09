@@ -43,18 +43,9 @@ Com foco em **privacidade, simplicidade e flexibilidade**, o Humnovo ajuda aplic
 
 ## 🧠 Como funciona
 
-```
-┌──────────────┐     ┌──────────────────┐     ┌──────────────────┐
-│   Usuário    │────▶│  Widget Humnovo  │────▶│  API de          │
-│  (navegador) │     │  (client-side)   │     │  Verificação     │
-└──────────────┘     └──────────────────┘     └────────┬─────────┘
-                                                       │ token
-                                                       ▼
-                                              ┌──────────────────┐
-                                              │  Seu backend     │
-                                              │  valida o token  │
-                                              └──────────────────┘
-```
+<p align="center">
+  <img src="docs/images/como-funciona.png" alt="Fluxo: Usuário (navegador) → Widget Humnovo (client-side) → API de Verificação → token → Seu backend valida o token" width="100%">
+</p>
 
 1. O widget do Humnovo é carregado na página.
 2. A verificação ocorre de forma leve e não intrusiva.
